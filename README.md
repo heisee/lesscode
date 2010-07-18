@@ -8,7 +8,8 @@ Log:
 18. Juli 2010: initiales Rails3-Projekt aufgesetzt und auf github gestellt, u.a. mit devise und einigen anderen, vermutlich nützlichen Gems
 
 
-== LICENSE:
+LICENSE
+-------
 
 (The MIT License)
 
