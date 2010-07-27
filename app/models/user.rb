@@ -9,4 +9,5 @@ class User < ActiveRecord::Base
   attr_accessible :username, :email, :password, :password_confirmation
 
   has_friendly_id :username, :use_slug => true
+  has_many :profiles
 end
