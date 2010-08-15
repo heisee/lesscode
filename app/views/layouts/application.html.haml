@@ -1,24 +1,73 @@
 !!! XML
 !!!
-%html
-  %head
-    %title My application
-    = stylesheet_link_tag 'screen', :media => 'screen, projection'
-    = stylesheet_link_tag 'print', :media => 'print'
-    /[if lt IE 8]
-      = stylesheet_link_tag 'ie', :media => 'screen, projection'
-    = csrf_meta_tag
-  %body
-    #container
-      #header 
-        = render 'devise/menu/registration_items'
-        = render 'devise/menu/login_items'
-      #sidebar SIDEBAR
-      #notice= notice
-      #alert= alert
-      #content= yield
-      #footer FOOTER
+%html{:dir => "ltr", :lang => "de-DE", :xmlns => "http://www.w3.org/1999/xhtml"}
+  %head{ :profile => "http://gmpg.org/xfn/11" }
+  %meta{:content => "IE=8", "http-equiv" => "X-UA-Compatible"}
+  %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+  %title LessCode - Pragma statt Dogma, agile Entwicklung, agile Technoligien, Grails, Ruby on Rails 3, Java, Scrum
+  %meta{:content => "Agile Development, Scrum, Tools, Ruby on Rails, Grails, Java", :name => "description"}
+  %meta{:content => "Agile Development, agile Entwicklung, Dienstleister, Scrum, Tools, Ruby on Rails 3, Grails, Java, Scrum", :name => "keywords"}
+  = stylesheet_link_tag 'gp2/style.css', :media => 'screen, projection'
+  /[if IE 6]
+    = stylesheet_link_tag 'gp2/ie6.css', :media => 'screen, projection'
+  -#  = stylesheet_link_tag 'screen', :media => 'screen, projection'
+  = stylesheet_link_tag 'print', :media => 'print'
+  = csrf_meta_tag
+  %body{:id=>"home"}
+    #header.clearfix
+      %ul#accessibility
+        %li
+          = link_to "Home", "/"
+          = render 'devise/menu/registration_items'
+          = render 'devise/menu/login_items'
+      #branding
+        %h1#logo
+          = link_to "LessCode", "/"
+        .description
+          Pragma statt Dogma &ndash; Mit weniger Code mehr erreichen
+      #nav.clearfix
+        #nav-search
+          %form#searchform{:action => "http://www.lesscode.de/", :method => "get", :role => "search"}
+            %div
+              %label.screen-reader-text{:for => "s"} Suche nach:
+              %input#s{:name => "s", :type => "text", :value => ""}
+              %input#searchsubmit{:type => "submit", :value => "Suchen"}
+        %ul#menu
+          %li.page_item
+            %a{:href => "http://www.lesscode.de/", :title => "Home"} Home
+          %li.page_item
+            %a{:href => "http://www.lesscode.de/initiative/", :title => "Die Initiative"} Die Initiative
+          %li.page_item
+            %a{:href => "http://www.lesscode.de/firma/", :title => "Die Firma"} Die Firma
+          %li.page_item.current_page_item
+            = link_to "Das Dienstleister-Verzeichnis", "http://dienstleister.lesscode.de"
+          %li.page_item
+            %a{:href => "http://www.lesscode.de/blog/", :title => "Der Blog"} Der Blog
+          %li.page_item
+            %a{:href => "http://forum.lesscode.de", :title => "Das Forum"} Das Forum
+          %li.page_item
+            %a{:href => "http://www.lesscode.de/kontakt/", :title => "Kontakt"} Kontakt
+        #submenu-bg
+          %ul#submenu
+            - @menu_items=profile_menu_items
+            = render "layouts/submenu", :locals=>{:menu_items=>profile_menu_items}
+    #main.clearfix
+      #container
+        #content
+          #post-10000.hentry.post
+            .entry
+              #notice= notice
+              #alert= alert
+              = yield
+
+    #footer.clearfix
+      %p.alignright
+        %a{:href => "http://www.lesscode.de/index.php/impressum", :title => "Impressum"} Impressum
+        &nbsp &nbsp &nbsp | &nbsp
+        %a.top-link{:href => "#home"} Nach oben
+      %p
+        \© 2010 LessCode  
+        
     %script{ :type => "text/javascript", :src => "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" }
     %script{ :type => "text/javascript", :src => "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js" }
     = javascript_include_tag :all
-

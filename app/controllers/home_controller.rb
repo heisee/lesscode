@@ -2,6 +2,7 @@ class HomeController < ApplicationController
   #before_filter :authenticate_user!
 
   def index
+    @menu_id=:root
     if user_signed_in?
       render "signed_in"
     else

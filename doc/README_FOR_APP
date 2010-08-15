@@ -1,0 +1,39 @@
+Menüstruktur:
+
+Home  
+  Profile
+    index (mit/ohne filter)
+    suchen
+    mein Profil editieren
+    user x
+
+Profildaten:
+  Einzelperson/Firma (radiobuttons)
+  Einzelperson: (Person innerhalb einer Firma, Freiberufler o.ä.)
+  Name*
+  über mich (text)
+  neue Festanstellung denkbar?
+
+  Firma: (als ganzes)
+  Firmenname
+  über uns (text)
+
+  Straße*
+  PLZ*
+  Stadt*
+  Telefon
+  Mobil
+  email (wird nicht dargestellt)
+  homepage
+
+  verfügbar ab [sofort/datum]
+  verfügbar bis [unbestimmt/datum]
+  Stundensatz VHB/wert
+  bevorzugte Projektdauer kurz/mittel/lang
+  Vor-Ort-Einsatz nein, unter Umständen in heißen Projektphasen, unter Umständen längerfristig, uneingeschränkt
+  weitere profile_urls-liste
+
+
+
+
+

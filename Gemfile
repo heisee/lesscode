@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.0.beta4'
+gem 'rails', '3.0.0.rc'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -28,7 +28,7 @@ gem 'mysql'
 #   gem 'webrat'
 # end
 gem "haml", ">=3.0.4"
-gem "inherited_resources", ">=1.1.2"
+#gem "inherited_resources", ">=1.1.2"
 gem "will_paginate", ">=3.0.pre"
 gem "devise", ">=1.1.rc2"
 gem "formtastic", :branch => "rails3"
@@ -49,3 +49,7 @@ gem "pickle", :group => :cucumber
 gem "inploy"
 gem "rails3-generators"
 gem "mongrel"
+gem "wirble"
+gem "hirb"
+gem "bond"
+gem "kramdown"
