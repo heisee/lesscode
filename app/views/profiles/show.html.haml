@@ -1,0 +1,21 @@
+- @p=@profile
+%p
+- if @profile.company_name
+  %b
+    Firma:
+    = @profile.company_name
+- if @profile.class==ProfilePerson
+  %b
+    Name:
+    = @profile.person_name
+
+%p
+  %b Zip code:
+  = @profile.zip_code
+%p
+  %b Stadt:
+  = @profile.city
+
+= link_to 'Ändern', edit_profile_path(@profile)
+\|
+= link_to 'Zurück', profiles_path

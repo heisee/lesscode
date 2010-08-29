@@ -1,0 +1,131 @@
+= form_for @profile.becomes(Profile) do |f|
+  -if @profile.errors.any?
+    #errorExplanation
+      %h2= "#{pluralize(@profile.errors.count, "error")} prohibited this profile from being saved:"
+      %ul
+        - @profile.errors.full_messages.each do |msg|
+          %li= msg
+
+  %fieldset
+    %h5
+      Typ des Profils
+    %p.field
+      - puts @profile.type
+      = f.radio_button :type, "ProfilePerson", :onchange=>"switchProfileTo('person')"
+      = f.label :type, "Einzelperson (innerhalb einer Firma, Freiberufler o.ä.)"
+      %br
+      = f.radio_button :type, "ProfileCompany", :onchange=>"switchProfileTo('company')"
+      = f.label :type, "Firma"
+    -# #profile_company{:style => display_if(@profile.type=="ProfileCompany")}
+    #profile_person{:style => display_if(@profile.type=="ProfilePerson")}
+      %p.field
+        = f.label :person_name, "Name (Vor- und Zuname)"
+        %br
+        = f.text_field :person_name
+    %p.field
+      = f.label :company_name, "Firma"
+      %br
+      = f.text_field :company_name
+  %fieldset
+    %h5
+      Adresse
+    %p.field
+      = f.label :street, "Straße"
+      %br
+      = f.text_field :street
+    %p.field
+      = f.label :zip_code, "PLZ"
+      %br
+      = f.text_field :zip_code
+    %p.field
+      = f.label :city, "Stadt"
+      %br
+      = f.text_field :city
+  %fieldset
+    %h5
+      Kontakt
+    %p.field
+      = f.label :phone, "Telefon"
+      %br
+      = f.text_field :phone
+    %p.field
+      = f.label :mobile, "Mobil"
+      %br
+      = f.text_field :mobile
+    %p.field
+      = f.label :email, "E-Mail (wird nicht dargestellt)"
+      %br
+      = f.text_field :email
+    %p.field
+      = f.label :homepage, "Homepage"
+      %br
+      = f.text_field :homepage
+  %fieldset
+    %h5
+      Projektbeginn
+    = f.radio_button :available_from_type, "depends"
+    = f.label :available_from_type, "Beginn kommt auf den Auftrag an"
+    %br
+    = f.radio_button :available_from_type, "now"
+    = f.label :available_from_type, "ab sofort"
+    %br
+    = f.radio_button :available_from_type, "date"
+    = f.label :available_from_type, "ab diesem Datum: "
+    = f.text_field :available_from_date
+  %fieldset
+    %h5
+      Projektdauer
+    = f.radio_button :available_duration_type, "depends"
+    = f.label :available_duration_type, "Dauer kommt auf den Auftrag an"
+    %br
+    = f.radio_button :available_duration_type, "long"
+    = f.label :available_duration_type, "möglichst lange"
+    %br
+    = f.radio_button :available_duration_type, "short"
+    = f.label :available_duration_type, "lieber ein eher kurzes Projekt"
+    %br
+    = f.radio_button :available_duration_type, "date"
+    = f.label :available_duration_type, "bis zu diesem Datum: "
+    = f.text_field :available_to_date
+  %fieldset
+    %h5
+      Beschreibung
+    %p.field
+      = f.label :about, "ein paar Worte über Sie (Markdown-Syntax)"
+      %br
+      = f.text_area :about
+
+  .actions
+    = f.submit 'Save'
+
+
+-#
+  Einzelperson/Firma (radiobuttons)
+  Einzelperson: (Person innerhalb einer Firma, Freiberufler o.ä.)
+  Name*
+  über mich (text)
+  
+
+  Firma: (als ganzes)
+  Firmenname
+  über uns (text)
+
+  Straße*
+  PLZ*
+  Stadt*
+  Telefon
+  Mobil
+  email (wird nicht dargestellt)
+  homepage
+
+  verfügbar ab [sofort/datum]
+  verfügbar bis [unbestimmt/datum]
+  Stundensatz VHB/wert
+  bevorzugte Projektdauer kurz/mittel/lang
+  Vor-Ort-Einsatz nein, unter Umständen in heißen Projektphasen, unter Umständen längerfristig, uneingeschränkt
+  weitere profile_urls-liste
+
+
+
+
+
