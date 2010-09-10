@@ -9,6 +9,7 @@ class ProfileCompany < Profile
   end
 end
 
+
 # == Schema Information
 #
 # Table name: profiles
@@ -30,6 +31,11 @@ end
 #  email                   :string(255)
 #  type                    :string(255)     not null
 #  user_id                 :integer(4)
+#  img_url                 :string(255)
+#  logo_file_name          :string(255)
+#  logo_content_type       :string(255)
+#  logo_file_size          :integer(4)
+#  logo_updated_at         :datetime
 #  created_at              :datetime
 #  updated_at              :datetime
 #

@@ -1,17 +1,7 @@
-%h1 Ihre Profile
+%h1 Editing profile
 
-%table
-  %tr
-    %th Typ
-    %th Name
+= render 'form'
 
-  - @profiles.each do |profile|
-    %tr
-      %td= profile.human_name_type
-      %td= profile.name
-      %td= link_to 'Ändern', edit_profile_path(profile)
-      %td= link_to 'Löschen', profile.becomes(Profile), :confirm => 'Wirklich löschen?', :method => :delete
-
-%br
-
-= link_to 'Weiteres Profil', new_profile_path
+= link_to 'Ansicht eines Suchenden', @profile.becomes(Profile)
+\|
+= link_to 'Zurück zu Ihrer Profilübersicht', profiles_path

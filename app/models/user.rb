@@ -1,16 +1,25 @@
 class User < ActiveRecord::Base
+  include Humanizer
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
-         :token_authenticatable, :confirmable, :lockable, :timeoutable
+    :recoverable, :rememberable, :trackable, :validatable,
+    :token_authenticatable, :confirmable, :lockable, :timeoutable
 
   validates :username, :presence=>true
 
+  if ENV["disable_humanizer"]!="true"
+    require_human_on :create
+  end
+  
   # Setup accessible (or protected) attributes for your model
   # Muss vor has_friendly_id kommen, weil dort attr_protected gesetzt wird!
-  attr_accessible :username, :email, :password, :password_confirmation, :remember_me
+  attr_accessible :username, :email, :password, :password_confirmation, :remember_me, 
+    :humanizer_question_id, :humanizer_answer
 
   has_friendly_id :username, :use_slug => true
   has_many :profiles
+
+
+
 end
 
 # == Schema Information

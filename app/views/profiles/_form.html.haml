@@ -38,7 +38,7 @@
       %br
       = f.text_field :zip_code
     %p.field
-      = f.label :city, "Stadt"
+      = f.label :city, "Stadt (notwendig)"
       %br
       = f.text_field :city
   %fieldset
@@ -99,9 +99,22 @@
     %h5
       Bild
     %p.field
-      = f.label :img_url, "URL zu ihrem Logo oder Bild (wird der Einfachheit halber im Browser skaliert)"
+      = f.label :img_url, "Ihr Logo zum Hochladen"
       %br
-      = form.file_field :logo
+      = f.file_field :logo
+
+  %fieldset
+    %h5
+      Kenntnisse
+    %p.field
+      = f.label :high_skill_list, "Sehr gute Kenntnisse, überdurchschnittlich (Komma separiert)"
+      %br
+        = f.text_field :high_skill_list #params[:profile] #, :class => "auto_search_complete"
+        =# text_field_with_auto_complete :profile, :skill_list, { :size => 40, :style => "width: 100%", :class => "bigger"}, { :url => skill_suggestions_profiles_path(:format => :js), :method => :get, :tokens => ',' }
+    %p.field
+      = f.label :average_skill_list, "durchschnittliche Kenntnisse (natürlich auch Komma separiert)"
+      %br
+        = f.text_field :average_skill_list #params[:profile] #, :class => "auto_search_complete"
 
   .actions
     = f.submit 'Speichern'

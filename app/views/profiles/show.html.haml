@@ -1,19 +1,27 @@
-- @p=@profile
 %p
-- if @profile.company_name
-  %b
-    Firma:
+  = image_tag @profile.logo.url(:huge) if @profile.logo_file_name
+%p
+  - if @profile.company_name
+    %b
+      Firma:
     = @profile.company_name
-- if @profile.class==ProfilePerson
-  %b
-    Name:
+  - if @profile.class==ProfilePerson
+    %br/
+    %b
+      Name:
     = @profile.person_name
-
 %p
-  %b Zip code:
+  %b PLZ:
   = @profile.zip_code
 %p
   %b Stadt:
   = @profile.city
 
+%p
+  %b Beschreibung:
+  = raw BlueCloth.new(@profile.about, :auto_links => true, :smartypants => true).to_html
+
 = link_to 'Zurück', profiles_path
+- if user_signed_in? and @profile.user==current_user
+  |
+  = link_to 'Ändern', edit_profile_path(@profile)

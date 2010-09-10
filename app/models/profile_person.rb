@@ -1,5 +1,7 @@
 class ProfilePerson < Profile
 
+  validates :person_name, :presence=>true
+
   def human_name_type
     "Einzelperson"
   end
@@ -10,6 +12,7 @@ class ProfilePerson < Profile
 
 
 end
+
 
 # == Schema Information
 #
@@ -32,6 +35,11 @@ end
 #  email                   :string(255)
 #  type                    :string(255)     not null
 #  user_id                 :integer(4)
+#  img_url                 :string(255)
+#  logo_file_name          :string(255)
+#  logo_content_type       :string(255)
+#  logo_file_size          :integer(4)
+#  logo_updated_at         :datetime
 #  created_at              :datetime
 #  updated_at              :datetime
 #

@@ -1,5 +1,9 @@
-Lesscode::Application.routes.draw do |map|
-  resources :profiles
+Lesscode::Application.routes.draw do
+  resources :profiles do
+    collection do
+      get 'skill_suggestions'
+    end
+  end
 
   devise_for :users
   # The priority is based upon order of creation:

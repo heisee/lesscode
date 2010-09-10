@@ -10,6 +10,7 @@ class CreateProfiles < ActiveRecord::Migration
       t.string :available_duration_type, :null=>false, :default=>"depends"
       t.date   :available_to_date
       t.string :zip_code
+      t.string :tag_line
       t.text   :about
       t.string :city
       t.string :phone
@@ -17,7 +18,6 @@ class CreateProfiles < ActiveRecord::Migration
       t.string :email
       t.string :type, :null=>false #STI
       t.integer :user_id
-      t.string :img_url
       t.string :logo_file_name
       t.string :logo_content_type
       t.integer :logo_file_size

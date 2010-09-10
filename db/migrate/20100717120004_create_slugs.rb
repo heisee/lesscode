@@ -2,7 +2,7 @@ class CreateSlugs < ActiveRecord::Migration
   def self.up
     create_table :slugs do |t|
       t.string :name
-      t.integer :sluggable_id
+      t.integer :sluggable_id, :references=>nil
       t.integer :sequence, :null => false, :default => 1
       t.string :sluggable_type, :limit => 40
       t.string :scope

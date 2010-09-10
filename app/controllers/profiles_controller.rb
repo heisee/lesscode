@@ -51,13 +51,14 @@ class ProfilesController < ApplicationController
   # POST /Profiles
   # POST /Profiles.xml
   def create
-    @profile = Profile.new(params[:profile])
+    possible_types={"ProfilePerson"=>ProfilePerson, "ProfileCompany"=>ProfileCompany}
+    model_class=possible_types[params[:profile].delete(:type)] #type ist nicht nicht mass-assignable
+    @profile = model_class.new(params[:profile])
     @profile.user=current_user
-    @profile.type=params[:profile][:type]
 
     respond_to do |format|
       if @profile.save
-        format.html { redirect_to(@profile, :notice => 'Profile was successfully created.') }
+        format.html { redirect_to(@profile.becomes(Profile), :notice => 'Profil wurde erfolgreich angelegt.') }
         format.xml  { render :xml => @profile, :status => :created, :location => @profile }
       else
         format.html { render :action => "new" }
@@ -72,8 +73,18 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
 
     respond_to do |format|
-      if @profile.update_attributes(params[:Profile])
-        format.html { redirect_to(@profile.becomes(Profile), :notice => 'Profile was successfully updated.') }
+      type=params[:profile].delete(:type)
+      if type!=@profile.type
+        #Klasse ändert sich!
+        @profile.type=type
+        @profile.save(:validate=>false)
+        #@profile.reload
+        Profile.uncached do
+          @profile=Profile.find(@profile.id) #geht sicher auch besser, ist aber einfach.. unkritisch hier
+        end
+      end
+      if @profile.update_attributes(params[:profile])
+        format.html { redirect_to(@profile.becomes(Profile), :notice => 'Profil wurde erfolgreich geändert.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -92,6 +103,10 @@ class ProfilesController < ApplicationController
       format.html { redirect_to(profiles_url) }
       format.xml  { head :ok }
     end
+  end
+
+  def skill_suggestions
+    @profile = Profile.tag_counts_on(:skills)
   end
 
 end

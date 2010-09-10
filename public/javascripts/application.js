@@ -7,3 +7,8 @@ function switchProfileTo(el) {
     $('#profile_'+el).show();
     $('#profile_'+otherEl).hide();
 }
+
+$(".auto_search_complete").autocomplete({
+    source: "/profiles/skill_suggestions.js",
+    minLength: 1
+});

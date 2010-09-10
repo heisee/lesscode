@@ -1,14 +1,18 @@
 class Profile < ActiveRecord::Base
   
   belongs_to :user
+
+  acts_as_taggable_on :high_skills, :average_skills
   
-  validates :person_name, :company_name, :zip_code, :presence=>true
+  validates :company_name, :zip_code, :city, :presence=>true
 
-  has_attached_file :logo, :styles => { :huge=>"500x500>", :large => "300x300>", :medium => "100x100>", :small => "50x50>", :tiny=>"32x32>" }
+  has_attached_file :logo, :styles => { :huge=>"250x500>", :large => "150x300>", :medium => "70x140>", :small => "32x64>", :tiny=>"16x32>" }
+  #validates_attachment_size :logo, :less_than => 2.megabytes
 
-  attr_protected :user_id #nicht mass-assignable über update_attributes
+  attr_protected :user_id, :logo_file_name, :logo_content_type, :logo_size #nicht mass-assignable über update_attributes
 
 end
+
 
 # == Schema Information
 #
@@ -31,6 +35,11 @@ end
 #  email                   :string(255)
 #  type                    :string(255)     not null
 #  user_id                 :integer(4)
+#  img_url                 :string(255)
+#  logo_file_name          :string(255)
+#  logo_content_type       :string(255)
+#  logo_file_size          :integer(4)
+#  logo_updated_at         :datetime
 #  created_at              :datetime
 #  updated_at              :datetime
 #
