@@ -9,7 +9,7 @@ class ProfilesController < ApplicationController
   # GET /Profiles
   # GET /Profiles.xml
   def index
-    @profiles = Profile.all
+    @profiles = current_user.profiles
 
     respond_to do |format|
       format.html # index.html.erb
@@ -20,7 +20,7 @@ class ProfilesController < ApplicationController
   # GET /Profiles/1
   # GET /Profiles/1.xml
   def show
-    @profile = Profile.find(params[:id])
+    @profile = current_user.profiles.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -85,7 +85,7 @@ class ProfilesController < ApplicationController
     @profile.destroy
 
     respond_to do |format|
-      format.html { redirect_to(Profiles_url) }
+      format.html { redirect_to(profiles_url) }
       format.xml  { head :ok }
     end
   end
