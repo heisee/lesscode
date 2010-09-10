@@ -1,7 +1,7 @@
 = form_for @profile.becomes(Profile) do |f|
   -if @profile.errors.any?
     #errorExplanation
-      %h2= "#{pluralize(@profile.errors.count, "error")} prohibited this profile from being saved:"
+      %h2= "#{pluralize(@profile.errors.count, "Fehler")} prohibited this profile from being saved:"
       %ul
         - @profile.errors.full_messages.each do |msg|
           %li= msg

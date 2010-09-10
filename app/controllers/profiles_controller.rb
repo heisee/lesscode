@@ -1,4 +1,4 @@
-class ProfilesController < InheritedResources::Base
+class ProfilesController < ApplicationController
 
   before_filter :set_menu_id
 
@@ -69,7 +69,7 @@ class ProfilesController < InheritedResources::Base
 
     respond_to do |format|
       if @profile.update_attributes(params[:Profile])
-        format.html { redirect_to(@profile, :notice => 'Profile was successfully updated.') }
+        format.html { redirect_to(@profile.becomes(Profile), :notice => 'Profile was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
