@@ -24,7 +24,7 @@ gem 'mysql'
 # group :test do
 #   gem 'webrat'
 # end
-gem "haml", ">=3.0.4"
+gem "haml"
 #gem "inherited_resources", ">=1.1.2"
 gem "will_paginate", ">=3.0.pre"
 gem "devise"

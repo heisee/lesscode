@@ -1,6 +1,4 @@
 Lesscode::Application.routes.draw do |map|
-  resources :delmes
-
   resources :profiles
 
   devise_for :users

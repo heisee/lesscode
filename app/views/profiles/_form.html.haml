@@ -19,11 +19,11 @@
     -# #profile_company{:style => display_if(@profile.type=="ProfileCompany")}
     #profile_person{:style => display_if(@profile.type=="ProfilePerson")}
       %p.field
-        = f.label :person_name, "Name (Vor- und Zuname)"
+        = f.label :person_name, "Vor- und Zuname (notwendig)"
         %br
         = f.text_field :person_name
     %p.field
-      = f.label :company_name, "Firma"
+      = f.label :company_name, "Firma (notwendig)"
       %br
       = f.text_field :company_name
   %fieldset
@@ -34,7 +34,7 @@
       %br
       = f.text_field :street
     %p.field
-      = f.label :zip_code, "PLZ"
+      = f.label :zip_code, "PLZ (notwendig)"
       %br
       = f.text_field :zip_code
     %p.field
@@ -93,11 +93,10 @@
     %p.field
       = f.label :about, "ein paar Worte über Sie (Markdown-Syntax)"
       %br
-      = f.text_area :about
+      = f.text_area :about, :rows => 8
 
   .actions
-    = f.submit 'Save'
-
+    = f.submit 'Speichern'
 
 -#
   Einzelperson/Firma (radiobuttons)
