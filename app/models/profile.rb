@@ -4,6 +4,8 @@ class Profile < ActiveRecord::Base
   
   validates :person_name, :company_name, :zip_code, :presence=>true
 
+  has_attached_file :logo, :styles => { :huge=>"500x500>", :large => "300x300>", :medium => "100x100>", :small => "50x50>", :tiny=>"32x32>" }
+
   attr_protected :user_id #nicht mass-assignable über update_attributes
 
 end

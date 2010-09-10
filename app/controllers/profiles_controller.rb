@@ -1,5 +1,8 @@
 class ProfilesController < ApplicationController
+  include ProfilesHelper
 
+  before_filter :authenticate_user!, :except=>[:index, :show]
+  
   before_filter :set_menu_id
 
   def set_menu_id
@@ -9,10 +12,11 @@ class ProfilesController < ApplicationController
   # GET /Profiles
   # GET /Profiles.xml
   def index
-    @profiles = current_user.profiles
-
+    @profiles = filtered_profiles
+    @personal_view=params[:personal]=="true"
+    @menu_id=:profile_dir unless @personal_view
     respond_to do |format|
-      format.html # index.html.erb
+      format.html #index.html.erb
       format.xml  { render :xml => @profiles }
     end
   end
@@ -20,8 +24,8 @@ class ProfilesController < ApplicationController
   # GET /Profiles/1
   # GET /Profiles/1.xml
   def show
-    @profile = current_user.profiles.find(params[:id])
-
+    @profile = Profile.find(params[:id])
+    @menu_id=:profile_dir
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @profile }

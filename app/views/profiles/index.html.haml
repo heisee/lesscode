@@ -1,19 +1,15 @@
-%h3 Ihre Profile
+- if @personal_view
+  = render "index_personal"
+- else
+  = render "index_public"
 
+%br/
+%br/
 
-
-%table
-  %tr
-    %th Typ
-    %th Name
-
-  - @profiles.each do |profile|
-    %tr
-      %td= profile.human_name_type
-      %td= profile.name
-      %td= link_to 'Ändern', edit_profile_path(profile)
-      %td= link_to 'Löschen', profile.becomes(Profile), :confirm => 'Wirklich löschen?', :method => :delete
-
-%br
-
-= link_to 'Neues Profil anlegen', new_profile_path
+- if user_signed_in?
+  = link_to 'Neues Profil anlegen', new_profile_path
+- else
+  = link_to "Login", new_session_path("user")
+  oder 
+  = link_to "Registrieren", new_registration_path("user")
+  um ein eigenes Profil anzulegen.

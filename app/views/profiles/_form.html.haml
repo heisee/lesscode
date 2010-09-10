@@ -1,4 +1,4 @@
-= form_for @profile.becomes(Profile) do |f|
+= form_for @profile.becomes(Profile), :html => { :multipart => true } do |f|
   -if @profile.errors.any?
     #errorExplanation
       %h2= "#{pluralize(@profile.errors.count, "Fehler")} gefunden:"
@@ -94,6 +94,14 @@
       = f.label :about, "ein paar Worte über Sie (Markdown-Syntax)"
       %br
       = f.text_area :about, :rows => 8
+
+  %fieldset
+    %h5
+      Bild
+    %p.field
+      = f.label :img_url, "URL zu ihrem Logo oder Bild (wird der Einfachheit halber im Browser skaliert)"
+      %br
+      = form.file_field :logo
 
   .actions
     = f.submit 'Speichern'

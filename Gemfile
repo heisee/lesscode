@@ -46,6 +46,8 @@ gem "spork", ">=0.8.4", :group => :cucumber
 gem "pickle", :group => :cucumber
 gem "inploy"
 gem "rails3-generators"
+gem "humanizer"
+gem "paperclip"
 gem "mongrel"
 gem "wirble"
 gem "hirb"
