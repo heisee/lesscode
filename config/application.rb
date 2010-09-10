@@ -49,7 +49,7 @@ module Lesscode
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
 
-    config.action_mailer.default_url_options={:host=> (Rails.env == "production" ? "app.lesscode.de" : "localhost:3000")}
+    config.action_mailer.default_url_options={:host=> (Rails.env == "production" ? "people.lesscode.de" : "localhost:3000")}
 
   end
 end

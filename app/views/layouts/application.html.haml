@@ -41,7 +41,7 @@
           %li.page_item
             %a{:href => "http://www.lesscode.de/firma/", :title => "Die Firma"} Die Firma
           %li.page_item.current_page_item
-            = link_to "Das Dienstleister-Verzeichnis", "http://dienstleister.lesscode.de"
+            = link_to "Das Dienstleister-Verzeichnis", "http://people.lesscode.de"
           %li.page_item
             %a{:href => "http://www.lesscode.de/blog/", :title => "Der Blog"} Der Blog
           %li.page_item
@@ -60,7 +60,23 @@
               #notice= notice
               #alert= alert
               = yield
-
+      #sidebar
+        %ul.sb-list.clearfix
+          %li.widget
+            .sb-title.widgettitle Sie haben ein Projekt zu vergeben?
+            %p
+              Wenn Sie ein agiles Projekt nach LessCode-Art durchführen möchten und dabei Unterstützung benötigen, dann finden Sie hier eine Liste von Dienstleistern.
+          %li.widget
+            .sb-title.widgettitle Sie suchen ein Projekt?
+            %p
+              Wenn Sie sich als Dienstleister von den hier vorgestellten LessCode-Prinzipien angespochen fühlen, können Sie sich
+              - if user_signed_in?
+                = link_to "hier", profiles_path(:personal=>true)
+              - else
+                = link_to "hier", new_session_path("user")
+              eintragen und präsentieren. 
+              %br/
+              Kostenlos und unverbindlich.
     #footer.clearfix
       %p.alignright
         %a{:href => "http://www.lesscode.de/index.php/impressum", :title => "Impressum"} Impressum
