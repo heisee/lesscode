@@ -1,0 +1,31 @@
+10
+
+dir
+30
+svn+ssh://root@lesscode.de/var/svn/repos/wdms/wdms/vendor/plugins/foreign_key_migrations/generators
+svn+ssh://root@lesscode.de/var/svn/repos/wdms
+
+
+
+2010-09-02T10:00:51.452233Z
+30
+root
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+90fb0704-78a6-48dd-b519-1c711294e0b3
+
+foreign_key_migration
+dir
+

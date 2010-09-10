@@ -1,0 +1,2 @@
+#!/bin/bash
+ssh root@lesscode.de "cd /var/www/people.lesscode.de ; rm -rf ./current/ ; git clone git://github.com/heisee/lesscode.git ./current ; rm -rf ./current/tmp ; rm -rf ./current/public/system ; ln -sf /var/www/people.lesscode.de/shared/tmp current/tmp ; ln -sf /var/www/people.lesscode.de/shared/system ./current/public/system ; touch ./current/tmp/restart.txt ; chown -R www-data:www-data * "
