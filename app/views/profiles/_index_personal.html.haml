@@ -1,0 +1,28 @@
+%h3 Ihre Profile
+
+%p
+  Sie können mehrere Profile unter diesem einen Zugang anlegen, z.B. können Sie sowohl Ihre Firma als eine auf Python spezialisierte Agentur präsentieren und zusätzlich noch sich persönlich als Testing-Spezialist.
+%p
+  %strong
+    Wichtig:
+  Mit dem Anlegen wird das Profil sofort veröffentlich. Dadurch geben Sie automatisch zu
+  erkennen, dass Sie der LessCode-Philosophie zumindest weitgehend zustimmen.
+  %br/
+  Denn dieenigen, die einen Dienstleister suchen, sollen sich darauf verlassen können, dass sie nur Dienstleister finden, die eine entsprechende
+  "lesscodige" Einstellung haben.    
+
+%table
+  %tr
+    %th Bild
+    %th Name
+    %th Typ
+  - @profiles.each do |profile|
+    %tr
+      %td= image_tag profile.logo.url(:small) if profile.logo_file_name
+      %td= profile.name
+      %td= profile.human_name_type
+      %td= link_to 'Ändern', edit_profile_path(profile)
+      %td= link_to 'Löschen', profile.becomes(Profile), :confirm => 'Wirklich löschen?', :method => :delete
+
+%br
+

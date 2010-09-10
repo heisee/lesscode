@@ -1,0 +1,23 @@
+%h4 Profilverzeichnis
+
+%p
+  Noch ist diese Liste nicht durchsuch-, nicht sortier- und nicht filterbar. Dies folgt alles in Kürze. Vorerst werden die Profile anhand des Anmeldedatums sortiert. (Neueste zuerst)
+
+%table
+  %tr
+    %th Bild
+    %th Name
+    %th PLZ
+    %th Stadt
+    %th Art
+  - @profiles.each do |profile|
+    %tr
+      %td= image_tag profile.logo.url(:small) if profile.logo_file_name
+      %td= link_to profile.name, profile_path(profile)
+      %td= profile.zip_code
+      %td= profile.city
+      %td= profile.human_name_type
+%br/
+
+%em
+  So wie LessCode selbst, befindet sich auch diese Liste erst am Anfang. Bitte nicht wundern, dass es vorerst nur wenige Einträge gibt.

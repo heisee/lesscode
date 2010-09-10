@@ -1,0 +1,4 @@
+- data = []
+-  Profile.tag_counts_on(:skills).each do |s|
+  - data << {:label => "#{h(s.name)}", :value => "#{h(s.name)}"}
+= data.to_json

@@ -1,0 +1,15 @@
+[Date,Time].each do |mod|
+  mod::DATE_FORMATS[:month_and_year] = "%m/%Y"
+  mod::DATE_FORMATS[:only_time] = "%H:%M"
+  mod::DATE_FORMATS[:only_time_and_seconds] = "%H:%M:%S"
+  mod::DATE_FORMATS[:only_month_and_year] = "%m/%y"
+  mod::DATE_FORMATS[:only_date] = "%d. %B %Y"
+  mod::DATE_FORMATS[:date_with_number_month] = "%d.%m.%Y"
+  mod::DATE_FORMATS[:parsable_date] = "%Y-%m-%d"
+  mod::DATE_FORMATS[:date_with_abbrev_month] = "%d. %b. %Y"
+  mod::DATE_FORMATS[:date_with_full_month]   = "%d. %B %Y"
+  mod::DATE_FORMATS[:only_month_break_year]   = "%b<br/>%y"
+  mod::DATE_FORMATS[:short_date_and_time]   = "%d. %B %Y, %H:%M"
+  mod::DATE_FORMATS[:date_and_time_for_path]   = "%Y%m%d-%H%M"
+  mod::DATE_FORMATS[:date_and_time_as_number_string]   = "%Y%m%d%H%M%S"
+end
