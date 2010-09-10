@@ -11,6 +11,24 @@ class Profile < ActiveRecord::Base
 
   attr_protected :user_id, :logo_file_name, :logo_content_type, :logo_size #nicht mass-assignable über update_attributes
 
+
+  def human_available_from
+    case available_from_type
+    when "depends" then "kommt auf das Projekt an"
+    when "now" then "ab sofort"
+    when "date" then "ab dem #{available_from_date.to_s(:date_with_number_month)}"
+    end
+  end
+
+  def human_available_to
+    case available_duration_type
+    when "depends" then "kommt auf das Projekt an"
+    when "long" then "möglichst lange"
+    when "short" then "lieber ein eher kurzes Projekt"
+    when "date" then "bis zum #{available_to_date.to_s(:date_with_number_month)}"
+    end
+  end
+
 end
 
 

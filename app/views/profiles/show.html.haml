@@ -10,15 +10,41 @@
     %b
       Name:
     = @profile.person_name
+
+%hr/
+
+%p
+  %b Straße:
+  = @profile.street
+
 %p
   %b PLZ:
   = @profile.zip_code
+
 %p
   %b Stadt:
   = @profile.city
 
+%hr/
+
 %p
-  %b Beschreibung:
+  %b Projektbeginn:
+  = @profile.human_available_from
+%p
+  %b Projektdauer:
+  = @profile.human_available_to
+
+%hr/
+
+%p
+  %b Sehr gute Kenntnisse:
+  = @profile.high_skill_list
+%p
+  %b Durchschnittliche Kenntnisse:
+  = @profile.average_skill_list
+
+%p
+  %b Beschreibung über sich selbst:
   = raw BlueCloth.new(@profile.about, :auto_links => true, :smartypants => true).to_html
 
 = link_to 'Zurück', profiles_path
