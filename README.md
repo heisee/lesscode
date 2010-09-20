@@ -4,11 +4,11 @@ LessCode
 Dies ist das Portal-Projekt, das http://lesscode.de antreibt.
 Dass dieses Projekt auf github gehostet wird, entspricht sicherlich den Prinzipien von LessCode.
 
-Log:
+Hier einige vergangene Projektschritte der größeren Art:
 
-18. 7. 2010: initiales Rails3-Projekt aufgesetzt und auf github gestellt, u.a. mit devise und einigen anderen Gems
-15. 8. 2010: Style an LessCode angepasst und rudimentäres Profil-Management
-10. 9. 2010: Profilverwaltung für erstes Release stark erweitert, einen Tag vor dem BarCamp Stuttgart 3
+* 18.7.2010: initiales Rails3-Projekt aufgesetzt und auf github gestellt, u.a. mit devise und einigen anderen Gems
+* 15.8.2010: Style an LessCode angepasst und rudimentäres Profil-Management
+* 10.9.2010: Profilverwaltung für erstes Release stark erweitert, einen Tag vor dem BarCamp Stuttgart 3
 
 LICENSE
 -------

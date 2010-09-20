@@ -37,15 +37,15 @@
           %li.page_item
             %a{:href => "http://www.lesscode.de/", :title => "Home"} Home
           %li.page_item
-            %a{:href => "http://www.lesscode.de/initiative/", :title => "Die Initiative"} Die Initiative
-          %li.page_item
-            %a{:href => "http://www.lesscode.de/firma/", :title => "Die Firma"} Die Firma
+            %a{:href => "http://www.lesscode.de/initiative/", :title => "Initiative"} Die Initiative
           %li.page_item.current_page_item
-            = link_to "Das Dienstleister-Verzeichnis", "http://people.lesscode.de"
+            %a{:href => "http://people.lesscode.de/", :title => "Initiative"} Projekt-Marktplatz
           %li.page_item
-            %a{:href => "http://www.lesscode.de/blog/", :title => "Der Blog"} Der Blog
+            %a{:href => "http://www.lesscode.de/gmbh/", :title => "telewebber GmbH"} telewebber GmbH
           %li.page_item
-            %a{:href => "http://forum.lesscode.de", :title => "Das Forum"} Das Forum
+            %a{:href => "http://www.lesscode.de/blog/", :title => "Blog"} Blog
+          %li.page_item
+            %a{:href => "http://forum.lesscode.de", :title => "Forum"} Forum
           %li.page_item
             %a{:href => "http://www.lesscode.de/kontakt/", :title => "Kontakt"} Kontakt
         #submenu-bg
@@ -87,4 +87,16 @@
         
     %script{ :type => "text/javascript", :src => "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" }
     %script{ :type => "text/javascript", :src => "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js" }
+
+    :javascript
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-16868432-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
     = javascript_include_tag :all

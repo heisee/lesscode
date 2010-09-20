@@ -50,6 +50,7 @@ module Lesscode
     config.filter_parameters += [:password]
 
     config.action_mailer.default_url_options={:host=> (Rails.env == "production" ? "people.lesscode.de" : "localhost:3000")}
+    config.action_mailer.smtp_settings={:enable_starttls_auto => false }
 
   end
 end
