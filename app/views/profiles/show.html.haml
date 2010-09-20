@@ -25,6 +25,14 @@
   %b Stadt:
   = @profile.city
 
+%p
+  %b Homepage:
+  = link_to @profile.homepage, @profile.homepage, :target => "_blank"
+
+%p
+  %b Telefon:
+  = @profile.phone
+
 %hr/
 
 %p

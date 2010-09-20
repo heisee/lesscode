@@ -19,7 +19,7 @@
   - @profiles.each do |profile|
     %tr
       %td= image_tag profile.logo.url(:small) if profile.logo_file_name
-      %td= profile.name
+      %td= truncate(profile.name, :length => 35)
       %td= profile.human_name_type
       %td= link_to 'Ändern', edit_profile_path(profile)
       %td= link_to 'Löschen', profile.becomes(Profile), :confirm => 'Wirklich löschen?', :method => :delete
