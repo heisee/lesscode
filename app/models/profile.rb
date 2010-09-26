@@ -29,6 +29,15 @@ class Profile < ActiveRecord::Base
     end
   end
 
+  def homepage_with_http
+    if !homepage.blank?
+      if homepage.start_with?("http://") or homepage.start_with?("https://") 
+        return homepage
+      end
+      "http://#{homepage}"
+    end
+  end
+
 end
 
 

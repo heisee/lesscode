@@ -2,3 +2,5 @@ Hier Ideen und TODOs:
 Menüstruktur ändern
 * Support für feste Jobs (Suche und Angebot)
 * Erklärung im Tagfeld, wie man dieses eingeben sollte
+
+http:// vor url
